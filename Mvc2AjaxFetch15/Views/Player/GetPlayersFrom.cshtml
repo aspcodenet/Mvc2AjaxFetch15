@@ -1,0 +1,12 @@
+﻿@model Mvc2AjaxFetch15.ViewModels.PlayerGetPlayersFromViewModel
+
+@{
+    Layout = null;
+}
+
+
+    @foreach (var item in Model.Items)
+    {
+        <li>@item.Namn - @item.JerseyNumber - @item.Position</li>
+    }
+

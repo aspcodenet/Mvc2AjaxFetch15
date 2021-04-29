@@ -1,0 +1,47 @@
+﻿@model Mvc2AjaxFetch15.ViewModels.PlayerIndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+},
+
+
+<h1>@Model.Country</h1>
+<b>@Model.ListGenerated</b>
+
+
+<ul id="players">
+    @foreach (var item in Model.Items)
+    {
+    <li>@item.Namn - @item.JerseyNumber - @item.Position </li>
+    }
+
+</ul>
+
+@*
+    UL -> LI 
+TABLE -> tr
+    *@
+
+<a class="btn btn-primary" href="#" onclick="fetch15more(); return false;">Hämta 15 nästa</a>
+
+@section Scripts
+{
+    <script>
+        var skip = 0;
+        function fetch15more() {
+            //$("#players").append('<li>En till</li>');
+
+            skip = skip + 15;
+            //$("#players").append('<li>' + skip + '</li>');
+
+            $.ajax({
+                url: "/player/GetPlayersFrom?skip=" + skip, success: function (result) {
+                    $("#players").append(result);
+                }
+            });
+
+        }
+
+
+    </script>
+}
