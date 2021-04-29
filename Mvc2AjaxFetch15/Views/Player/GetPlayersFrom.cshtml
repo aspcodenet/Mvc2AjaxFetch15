@@ -5,8 +5,12 @@
 }
 
 
-    @foreach (var item in Model.Items)
-    {
-        <li>@item.Namn - @item.JerseyNumber - @item.Position</li>
-    }
+@foreach (var item in Model.Items)
+{
+    <tr>
+        <td>@item.Namn</td>
+        <td>@item.JerseyNumber</td>
+        <td>@item.Position</td>
+    </tr>
+}
 

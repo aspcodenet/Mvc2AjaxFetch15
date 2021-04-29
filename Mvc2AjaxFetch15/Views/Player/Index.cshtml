@@ -9,18 +9,22 @@
 <b>@Model.ListGenerated</b>
 
 
-<ul id="players">
-    @foreach (var item in Model.Items)
-    {
-    <li>@item.Namn - @item.JerseyNumber - @item.Position </li>
-    }
+<table class="table" id="players">
+        @foreach (var item in Model.Items)
+        {
+    <tr>
+        <td>@item.Namn</td>
+        <td>@item.JerseyNumber</td>
+        <td>@item.Position</td>
+    </tr>
+        }
 
-</ul>
+</table>
 
 @*
-    UL -> LI 
-TABLE -> tr
-    *@
+        UL -> LI
+    TABLE -> tr
+*@
 
 <a class="btn btn-primary" href="#" onclick="fetch15more(); return false;">Hämta 15 nästa</a>
 
