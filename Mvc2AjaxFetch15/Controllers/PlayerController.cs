@@ -21,7 +21,7 @@ namespace Mvc2AjaxFetch15.Controllers
             var viewModel = new PlayerIndexViewModel();
             viewModel.Country = "Sweden";
             viewModel.ListGenerated = DateTime.Now;
-            viewModel.Items = _playerRepository.GetList(0, 15).Select(r=>new PlayerIndexViewModel.Item
+            viewModel.Items = _playerRepository.GetList(0, 15).Select(r=>new PlayerRowViewModel
             {
                 JerseyNumber = r.JerseyNumber,
                 Position = r.Position,
@@ -39,7 +39,7 @@ namespace Mvc2AjaxFetch15.Controllers
             var viewModel = new PlayerGetPlayersFromViewModel();
             //viewModel.Country = "Sweden";
             //viewModel.ListGenerated = DateTime.Now;
-            viewModel.Items = _playerRepository.GetList(skip, 15).Select(r => new PlayerGetPlayersFromViewModel.Item
+            viewModel.Items = _playerRepository.GetList(skip, 15).Select(r => new PlayerRowViewModel
             {
                 JerseyNumber = r.JerseyNumber,
                 Position = r.Position,
